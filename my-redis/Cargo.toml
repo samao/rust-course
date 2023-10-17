@@ -1,0 +1,16 @@
+[package]
+name = "my-redis"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bytes = "1.5.0"
+mini-redis = "0.4.1"
+sys-info = "0.9.1"
+tokio = { version = "1.33.0", features = ["full"] }
+
+[[example]]
+name="hello-redis"
+path="examples/hello-redis.rs"
