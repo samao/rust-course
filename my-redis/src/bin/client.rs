@@ -7,7 +7,7 @@ use tokio::sync::{mpsc, oneshot};
  * @Author: idzeir
  * @Date: 2023-10-17 15:36:16
  * @Last Modified by: idzeir
- * @Last Modified time: 2023-10-17 16:14:24
+ * @Last Modified time: 2023-10-18 15:32:45
  */
 #[tokio::main]
 async fn main() {
@@ -70,7 +70,7 @@ async fn main() {
 type Responder<T> = oneshot::Sender<mini_redis::Result<T>>;
 
 #[derive(Debug)]
-enum Command {
+pub enum Command {
     Get {
         key: String,
         resp: Responder<Option<Bytes>>,
