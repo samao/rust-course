@@ -25,7 +25,7 @@ fn main() {
 
     mini_tokio.spawn(async {
         let when = Instant::now() + Duration::from_secs(3);
-        let out = Delay { when }.await;
+        let out = Delay { when, waker: None }.await;
 
         println!("final async = {}", out);
     });

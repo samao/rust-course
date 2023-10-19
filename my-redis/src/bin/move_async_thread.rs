@@ -1,7 +1,9 @@
 use std::{
     pin::Pin,
+    sync::Arc,
     task::Poll,
-    time::{Duration, Instant}, sync::Arc, thread,
+    thread,
+    time::{Duration, Instant},
 };
 
 use futures::{future::poll_fn, Future};

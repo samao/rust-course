@@ -42,6 +42,7 @@ async fn run_parallel() {
     println!("entry run parallel");
     Delay {
         when: Instant::now() + Duration::from_secs(6),
+        waker: None
     }
     .await;
 }
@@ -49,7 +50,7 @@ async fn run_parallel() {
 async fn run_delay() {
     println!("entry run delay");
     let when: Instant = Instant::now() + Duration::from_secs(3);
-    let future = Delay { when };
+    let future = Delay { when, waker: None };
 
     let out = future.await;
 

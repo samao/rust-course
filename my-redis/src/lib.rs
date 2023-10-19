@@ -12,6 +12,8 @@ use std::task::{Poll, Waker};
 use std::thread;
 use std::time::Instant;
 
+mod blocking_client;
+
 #[derive(Debug)]
 pub struct Delay {
     pub when: Instant,
@@ -35,7 +37,7 @@ impl Future for Delay {
             let waker = Arc::new(Mutex::new(cx.waker().clone()));
             self.waker = Some(waker.clone());
             println!("delay poll go thread");
-            
+
             thread::spawn(move || {
                 let now = Instant::now();
 
